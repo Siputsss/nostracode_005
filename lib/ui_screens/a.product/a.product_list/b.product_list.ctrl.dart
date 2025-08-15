@@ -21,6 +21,16 @@ class ProductListCtrl {
     _dt.rxProductList.stateAsync = getColl();
   }
 
+  Future<Product?> getDoc(String id) async {
+    final readDoc = await FirebaseFirestore.instance.collection('product').doc(id).get();
+    debugPrint(readDoc.data().toString());
+    return Product.fromMap(readDoc.data() ?? {});
+  }
+
+  readDoc(String id) {
+    _dt.rxProductDetail.stateAsync = getDoc(id);
+  }
+
   Future<void> createDoc() async {
     final product = Product(
       id: UniqueKey().toString(),
@@ -33,6 +43,24 @@ class ProductListCtrl {
     FirebaseFirestore.instance.collection('product').doc(product.id).set(product.toMap());
     _dt.rxProductList.st = [..._dt.rxProductList.st]..insert(0, product);
     debugPrint(product.toString());
+  }
+
+  Future<void> updateDoc(Product product) async {
+    final productEdit = Product(
+      id: product.id,
+      brand: 'product edited',
+      model: product.model,
+      year: 2025,
+      price: product.price,
+      createdAt: product.createdAt,
+      updatedAt: DateTime.now().toString(),
+    );
+    FirebaseFirestore.instance.collection('product').doc(productEdit.id).set(productEdit.toMap());
+    _dt.rxProductList.setState((s) {
+      final index = _dt.rxProductList.st.indexWhere((element) => element.id == product.id);
+      return s[index] = productEdit;
+    });
+    debugPrint('product has been edited');
   }
 
   deleteDoc(String id) async {
