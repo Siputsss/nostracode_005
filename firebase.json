@@ -1,1 +1,20 @@
-{"firestore":{"rules":"firestore.rules","indexes":"build/web"},"hosting":{"source":".","ignore":["firebase.json","**/.*","**/node_modules/**"],"frameworksBackend":{"region":"us-central1"}},"storage":{"rules":"storage.rules"},"flutter":{"platforms":{"dart":{"lib/firebase_options.dart":{"projectId":"nostracode-005","configurations":{"ios":"1:675980340468:ios:ed1f7cd5d4d8b8ec3d02a1","web":"1:675980340468:web:0e51763ce4e0c9ba3d02a1"}}}}}}
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "source": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "frameworksBackend": {
+      "region": "us-central1"
+    }
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
+}
