@@ -1,1 +1,1 @@
-
+part 'product.dart';
