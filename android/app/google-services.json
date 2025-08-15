@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "675980340468",
+    "project_id": "nostracode-005",
+    "storage_bucket": "nostracode-005.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675980340468:android:6d77aa10e5455e2a3d02a1",
+        "android_client_info": {
+          "package_name": "com.nc002.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "675980340468-0p9k0evq0acud9trn3ekkbeu9eu7jikg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnt0CG3cevvZE5maKHtteNPk8GLbrRqrw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "675980340468-0p9k0evq0acud9trn3ekkbeu9eu7jikg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675980340468:android:bcffc54b3eb4979a3d02a1",
+        "android_client_info": {
+          "package_name": "com.nc005.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "675980340468-0p9k0evq0acud9trn3ekkbeu9eu7jikg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnt0CG3cevvZE5maKHtteNPk8GLbrRqrw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "675980340468-0p9k0evq0acud9trn3ekkbeu9eu7jikg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
