@@ -8,18 +8,17 @@ class ProductListView extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(preferredSize: Size.fromHeight(56), child: ProductListAppbar()),
       floatingActionButton: ProductListFab(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: OnBuilder.all(
+        listenTo: _dt.rxProductList,
+        onWaiting: () => CircularProgressIndicator(),
+        onError: (error, refreshError) => Text('$error'),
+        onData: (data) => Column(
           children: [
-            ElevatedButton(
-              onPressed: () async {
-                final read = await FirebaseFirestore.instance.collection('product').get();
-                debugPrint(read.toString());
-                debugPrint(read.docs[0].id);
-                debugPrint(read.docs[0]['brand']);
-              },
-              child: Text("Read"),
+            ...List.generate(
+              data.length,
+              (index) => Card(
+                child: ListTile(title: Text(data[index].brand), subtitle: Text(data[index].price.toString())),
+              ),
             ),
           ],
         ),
