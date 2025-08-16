@@ -18,7 +18,6 @@ class ProductEditCtrl {
       updatedAt: DateTime.now().toString(),
     );
     _sv.updateDoc(productEdit);
-    _sv.readDoc();
     nav.back();
   }
 

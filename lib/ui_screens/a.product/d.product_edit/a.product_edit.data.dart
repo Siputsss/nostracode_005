@@ -9,23 +9,21 @@ class ProductEditData {
 
   final rxProductDetail = _pv.rxProductDetail;
 
+  final rxPickedImage = RM.inject<XFile?>(() => null);
+
   final rxForm = RM.injectForm(
     autovalidateMode: AutovalidateMode.onUserInteraction,
     submit: () async => _ct.updateDoc(),
   );
 
   final rxBrand = RM.inject(
-    () => RM.injectTextEditing(
-      validators: [Validate.isNotEmpty, Validate.fullName],
-      text: '${_dt.rxProductDetail.st!.brand}',
-    ),
+    () =>
+        RM.injectTextEditing(validators: [Validate.isNotEmpty, Validate.fullName], text: _dt.rxProductDetail.st!.brand),
   );
 
   final rxModel = RM.inject(
-    () => RM.injectTextEditing(
-      validators: [Validate.isNotEmpty, Validate.fullName],
-      text: '${_dt.rxProductDetail.st!.model}',
-    ),
+    () =>
+        RM.injectTextEditing(validators: [Validate.isNotEmpty, Validate.fullName], text: _dt.rxProductDetail.st!.model),
   );
 
   final rxYear = RM.inject(
