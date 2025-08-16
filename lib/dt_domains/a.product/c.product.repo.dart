@@ -34,4 +34,11 @@ class ProductRepo {
   deleteDoc(String id) async {
     FirebaseFirestore.instance.collection('product').doc(id).delete();
   }
+
+  Future<String> uploddImage(String id) async {
+    final data = await _pv.rxPickedImage.st!.readAsBytes();
+    final contentType = _pv.rxPickedImage.st?.mimeType;
+    final url = await FirebaseStorage.instance.ref(id).putData(data, SettableMetadata(contentType: contentType));
+    return url.ref.getDownloadURL();
+  }
 }

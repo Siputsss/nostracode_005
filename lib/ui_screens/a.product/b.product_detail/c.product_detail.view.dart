@@ -16,16 +16,25 @@ class ProductDetailView extends StatelessWidget {
               listenTo: _dt.rxProductDetail,
               onError: (error, refreshError) => Text('$error'),
               onWaiting: () => Center(child: CircularProgressIndicator()),
-              onData: (data) => Column(
-                children: [
-                  Text('${data?.id}'),
-                  Text('${data?.brand}'),
-                  Text('${data?.model}'),
-                  Text('${data?.year}'),
-                  Text('${data?.price}'),
-                  Text('${data?.createdAt}'),
-                  Text('${data?.updatedAt}'),
-                ],
+              onData: (data) => Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    data?.imageUrl == null
+                        ? Card(
+                            child: SizedBox(height: 100, width: 100, child: Center(child: Text('No Image'))),
+                          )
+                        : SizedBox(height: 100, width: 100, child: Image.network('${data?.imageUrl}')),
+
+                    Text('${data?.id}'),
+                    Text('${data?.brand}'),
+                    Text('${data?.model}'),
+                    Text('${data?.year}'),
+                    Text('${data?.price}'),
+                    Text('${data?.createdAt}'),
+                    Text('${data?.updatedAt}'),
+                  ],
+                ),
               ),
             ),
           ],
