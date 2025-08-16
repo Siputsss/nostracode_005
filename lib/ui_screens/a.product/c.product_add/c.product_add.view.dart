@@ -14,65 +14,15 @@ class ProductAddView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              OnFormBuilder(
-                listenTo: _dt.rxForm,
-                builder: () => TextField(
-                  controller: _dt.rxBrand.controller,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Brand',
-                    errorText: _dt.rxBrand.error,
-                  ),
-                ),
-              ),
+              ProductAddBrand(),
               const SizedBox(height: 20),
-              OnFormBuilder(
-                listenTo: _dt.rxForm,
-                builder: () => TextField(
-                  controller: _dt.rxModel.controller,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Model',
-                    errorText: _dt.rxModel.error,
-                  ),
-                ),
-              ),
+              ProductAddModel(),
               const SizedBox(height: 20),
-              OnFormBuilder(
-                listenTo: _dt.rxForm,
-                builder: () => TextField(
-                  controller: _dt.rxYear.controller,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Year',
-                    errorText: _dt.rxYear.error,
-                  ),
-                ),
-              ),
+              ProductAddYear(),
               const SizedBox(height: 20),
-              OnFormBuilder(
-                listenTo: _dt.rxForm,
-                builder: () => TextField(
-                  controller: _dt.rxPrice.controller,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Price',
-                    errorText: _dt.rxPrice.error,
-                  ),
-                ),
-              ),
+              ProductAddPrice(),
               const SizedBox(height: 20),
-
-              OnFormSubmissionBuilder(
-                listenTo: _dt.rxForm,
-                onSubmitting: () => CircularProgressIndicator(),
-                child: ElevatedButton(
-                  onPressed: () {
-                    _ct.submit();
-                  },
-                  child: Text("Submit"),
-                ),
-              ),
+              ProductAddSubmit(),
             ],
           ),
         ),

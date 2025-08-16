@@ -12,8 +12,8 @@ class ProductAddCtrl {
       id: UniqueKey().toString(),
       brand: _dt.rxBrand.value,
       model: _dt.rxModel.value,
-      year: Random().nextInt(9999),
-      price: Random().nextInt(9999),
+      year: int.parse(_dt.rxYear.value),
+      price: int.parse(_dt.rxPrice.value),
       createdAt: DateTime.now().toString(),
     );
     _sv.createDoc(product);

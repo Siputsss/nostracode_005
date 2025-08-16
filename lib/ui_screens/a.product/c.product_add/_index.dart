@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:nc_005/dt_domains/_models/_index.dart';
 import 'package:nc_005/dt_domains/a.product/_index.dart';
@@ -13,9 +11,11 @@ part 'b.product_add.ctrl.dart';
 part 'c.product_add.view.dart';
 part 'widgets/a.product_add.appbar.dart';
 part 'widgets/b.product_add.fab.dart';
-part 'widgets/c.product_add.charlie.dart';
-part 'widgets/d.product_add.delta.dart';
-part 'widgets/e.product_add.echo.dart';
+part 'widgets/c.product_add.brand.dart';
+part 'widgets/d.product_add.model.dart';
+part 'widgets/e.product_add.year.dart';
+part 'widgets/f. product_add.price.dart';
+part 'widgets/g. product_add.submit.dart';
 
 ProductAddData get _dt => Data.productAdd.st;
 ProductAddCtrl get _ct => Ctrl.productAdd;
