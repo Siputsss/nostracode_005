@@ -10,7 +10,7 @@ class ProductListView extends StatelessWidget {
       floatingActionButton: ProductListFab(),
       body: OnBuilder.all(
         listenTo: _dt.rxProductList,
-        onWaiting: () => CircularProgressIndicator(),
+        onWaiting: () => Center(child: CircularProgressIndicator()),
         onError: (error, refreshError) => Text('$error'),
         onData: (data) => Column(
           children: [
@@ -37,25 +37,11 @@ class ProductListView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  onTap: () => _ct.readDoc(data[index].id),
+                  onTap: () {
+                    _ct.setSelectedId(data[index].id);
+                    nav.to(Routes.productDetail);
+                  },
                 ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            Text('Product Detail'),
-            const SizedBox(height: 20),
-            OnBuilder.data(
-              listenTo: _dt.rxProductDetail,
-              builder: (data) => Column(
-                children: [
-                  Text('${data?.id}'),
-                  Text('${data?.brand}'),
-                  Text('${data?.model}'),
-                  Text('${data?.year}'),
-                  Text('${data?.price}'),
-                  Text('${data?.createdAt}'),
-                  Text('${data?.updatedAt}'),
-                ],
               ),
             ),
           ],

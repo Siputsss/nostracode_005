@@ -7,28 +7,30 @@ class ProductListCtrl {
 
   updateRandom() => Serv.sample.updateRandom();
 
-  Future<List<Product>> getColl() async {
-    return _sv.getColl();
+  setSelectedId(String id) {
+    _sv.setSelectedId(id);
+    debugPrint(_dt.rxSelectedId.st);
   }
 
   readList() {
     _sv.readList();
   }
 
-  Future<Product?> getDoc(String id) async {
-    return _sv.getDoc(id);
-  }
-
-  readDoc(String id) {
-    _sv.readDoc(id);
-  }
-
-  Future<void> createDoc() async {
-    _sv.createDoc();
+  readDoc() {
+    _sv.readDoc();
   }
 
   Future<void> updateDoc(Product product) async {
-    _sv.updateDoc(product);
+    final productEdit = Product(
+      id: product.id,
+      brand: 'product edited',
+      model: product.model,
+      year: 2025,
+      price: product.price,
+      createdAt: product.createdAt,
+      updatedAt: DateTime.now().toString(),
+    );
+    _sv.updateDoc(productEdit);
   }
 
   deleteDoc(String id) async {

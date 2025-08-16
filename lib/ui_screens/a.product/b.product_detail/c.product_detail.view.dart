@@ -5,19 +5,29 @@ class ProductDetailView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(56),
-        child: ProductDetailAppbar(),
-      ),
+    return Scaffold(
+      appBar: PreferredSize(preferredSize: Size.fromHeight(56), child: ProductDetailAppbar()),
       floatingActionButton: ProductDetailFab(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ProductDetailCharlie(),
-            ProductDetailDelta(),
-            ProductDetailEcho(),
+            OnBuilder.all(
+              listenTo: _dt.rxProductDetail,
+              onError: (error, refreshError) => Text('$error'),
+              onWaiting: () => Center(child: CircularProgressIndicator()),
+              onData: (data) => Column(
+                children: [
+                  Text('${data?.id}'),
+                  Text('${data?.brand}'),
+                  Text('${data?.model}'),
+                  Text('${data?.year}'),
+                  Text('${data?.price}'),
+                  Text('${data?.createdAt}'),
+                  Text('${data?.updatedAt}'),
+                ],
+              ),
+            ),
           ],
         ),
       ),
