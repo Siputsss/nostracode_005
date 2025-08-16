@@ -8,6 +8,7 @@ Future<void> inits() async {
 
   Serv.sample.init();
   Serv.product.init();
+  Serv.auth.init();
 
   logx.wtf('inits success');
 }

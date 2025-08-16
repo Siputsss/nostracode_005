@@ -37,4 +37,9 @@ class ProductRepoMock implements ProductRepo {
   Future<String> uploddImage(String id) {
     throw UnimplementedError();
   }
+
+  @override
+  deleteImage(id) {
+    throw UnimplementedError();
+  }
 }
