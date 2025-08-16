@@ -20,19 +20,6 @@ class ProductListCtrl {
     _sv.readDoc();
   }
 
-  Future<void> updateDoc(Product product) async {
-    final productEdit = Product(
-      id: product.id,
-      brand: 'product edited',
-      model: product.model,
-      year: 2025,
-      price: product.price,
-      createdAt: product.createdAt,
-      updatedAt: DateTime.now().toString(),
-    );
-    _sv.updateDoc(productEdit);
-  }
-
   deleteDoc(String id) async {
     _sv.deleteDoc(id);
   }
