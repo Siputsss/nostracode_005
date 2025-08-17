@@ -5,6 +5,6 @@ class RegisterAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: AppBar(title: OnReactive(() => Text(_dt.rxTitle.st))));
+    return Center(child: AppBar(centerTitle: true, title: OnReactive(() => Text(_dt.rxTitle.st))));
   }
 }

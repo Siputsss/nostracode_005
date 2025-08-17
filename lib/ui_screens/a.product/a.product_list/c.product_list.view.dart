@@ -12,34 +12,39 @@ class ProductListView extends StatelessWidget {
         listenTo: _dt.rxProductList,
         onWaiting: () => Center(child: CircularProgressIndicator()),
         onError: (error, refreshError) => Text('$error'),
-        onData: (data) => Column(
-          children: [
-            ...List.generate(
-              data.length,
-              (index) => Card(
-                child: ListTile(
-                  leading: SizedBox(width: 50, child: Image.network(data[index].imageUrl)),
-                  title: Text(data[index].brand),
-                  subtitle: Text(data[index].id),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          _ct.deleteDoc(data[index].id);
-                        },
-                        icon: const Icon(Icons.delete),
+        onData: (data) => Center(
+          child: SizedBox(
+            width: 450,
+            child: Column(
+              children: [
+                ...List.generate(
+                  data.length,
+                  (index) => Card(
+                    child: ListTile(
+                      leading: SizedBox(width: 50, child: Image.network(data[index].imageUrl)),
+                      title: Text(data[index].brand),
+                      subtitle: Text(data[index].id),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              _ct.deleteDoc(data[index].id);
+                            },
+                            icon: const Icon(Icons.delete),
+                          ),
+                        ],
                       ),
-                    ],
+                      onTap: () {
+                        _ct.setSelectedId(data[index].id);
+                        nav.to(Routes.productDetail);
+                      },
+                    ),
                   ),
-                  onTap: () {
-                    _ct.setSelectedId(data[index].id);
-                    nav.to(Routes.productDetail);
-                  },
                 ),
-              ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

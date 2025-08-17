@@ -6,6 +6,7 @@ class ProductListAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      centerTitle: true,
       title: OnReactive(() => Text(_dt.rxTitle.st)),
       actions: [
         IconButton(
