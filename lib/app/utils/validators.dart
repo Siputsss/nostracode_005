@@ -87,8 +87,8 @@ class Validate {
   }
 
   static String? fullName(String? str) {
-    if (str != null && !RegExp(r"^[a-zA-Z \,\.\']*$").hasMatch(str)) {
-      return "only allow [a-z][A-Z][,.']";
+    if (str != null && !RegExp(r"^[a-zA-Z0-9 \,\.\']*$").hasMatch(str)) {
+      return "only allow [a-z][A-Z][0-9][,.']";
     }
     return null;
   }

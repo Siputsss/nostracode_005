@@ -5,8 +5,6 @@ class LoginAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      title: OnReactive(() => Text(_dt.rxTitle.st)),
-    );
+    return Center(child: AppBar(title: OnReactive(() => Text(_dt.rxTitle.st))));
   }
 }

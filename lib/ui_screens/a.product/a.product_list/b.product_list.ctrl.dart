@@ -23,4 +23,12 @@ class ProductListCtrl {
   deleteDoc(String id) async {
     _sv.deleteDoc(id);
   }
+
+  Future<void> signOut() async {
+    _sva.signOut();
+  }
+
+  Future<void> deleteAccount() async {
+    _sva.deleteAccount();
+  }
 }

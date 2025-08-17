@@ -9,7 +9,7 @@ class ProductEditData {
 
   final rxProductDetail = _pv.rxProductDetail;
 
-  final rxPickedImage = RM.inject<XFile?>(() => null);
+  final rxPickedImage = _pv.rxPickedImage;
 
   final rxForm = RM.injectForm(
     autovalidateMode: AutovalidateMode.onUserInteraction,

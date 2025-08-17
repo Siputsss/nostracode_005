@@ -1,6 +1,8 @@
 import 'dart:math';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:nc_005/dt_domains/b.auth/_index.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
 
 import '../../app/_index.dart';
@@ -18,3 +20,4 @@ part 'widgets/e.register.echo.dart';
 RegisterData get _dt => Data.register.st;
 RegisterCtrl get _ct => Ctrl.register;
 
+AuthServ get _sv => Serv.auth;
